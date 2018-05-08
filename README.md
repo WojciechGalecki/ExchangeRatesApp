@@ -12,6 +12,6 @@ Output data:
 - standard deviation of the sale prices.
 
 # Built With
-*Java - Logic
-*JavaFX - View
-*Maven - Dependency Management
+- Java - Logic
+- JavaFX - View
+- Maven - Dependency Management
