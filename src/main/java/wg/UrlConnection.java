@@ -15,8 +15,4 @@ public class UrlConnection {
 
         return connection;
     }
-
-    public int getResponseCode() throws IOException {
-        return this.connection.getResponseCode();
-    }
 }
