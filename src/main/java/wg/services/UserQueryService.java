@@ -1,6 +1,6 @@
 package wg.services;
 
-public interface UserQuery {
+public interface UserQueryService {
 
     String getUrl(String...parameters);
 }

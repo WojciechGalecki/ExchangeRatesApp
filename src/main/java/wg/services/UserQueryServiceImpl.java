@@ -1,8 +1,6 @@
 package wg.services;
 
-import wg.services.UserQuery;
-
-public class UserQueryImpl implements UserQuery {
+public class UserQueryServiceImpl implements UserQueryService {
 
     private final String URL = "http://api.nbp.pl/api/exchangerates/rates/c/";
     private final String S = "/";

@@ -6,11 +6,9 @@ import java.net.URL;
 
 public class UrlConnection {
 
-    public HttpURLConnection getConnection(String url) throws IOException {
+    public static HttpURLConnection getConnection(String url) throws IOException {
 
         URL obj = new URL(url);
-        HttpURLConnection connection = (HttpURLConnection) obj.openConnection();
-
-        return connection;
+        return (HttpURLConnection) obj.openConnection();
     }
 }

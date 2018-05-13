@@ -15,8 +15,7 @@ public class ResponseImpl implements Response {
 
         int responseCode = connection.getResponseCode();
 
-        if(responseCode == HttpURLConnection.HTTP_OK){
-
+        if (responseCode == HttpURLConnection.HTTP_OK) {
             BufferedReader input = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 
             String inputLine;
@@ -28,7 +27,10 @@ public class ResponseImpl implements Response {
 
             String responseString = response.toString();
             optionalResponse = Optional.of(responseString);
+
+            input.close();
         }
+
         return optionalResponse;
     }
 }
