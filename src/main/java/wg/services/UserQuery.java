@@ -1,4 +1,4 @@
-package wg.url_adresses;
+package wg.services;
 
 public interface UserQuery {
 

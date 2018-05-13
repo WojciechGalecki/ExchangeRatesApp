@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -19,7 +18,7 @@
       </HBox>
       <HBox layoutY="40.0" prefHeight="40.0" prefWidth="600.0">
          <children>
-            <TextField fx:id="codeTxt" prefHeight="25.0" prefWidth="93.0" promptText="currency code">
+            <TextField fx:id="codeTxt" prefHeight="25.0" prefWidth="93.0" text="EUR">
                <HBox.margin>
                   <Insets left="10.0" top="5.0" />
                </HBox.margin>
