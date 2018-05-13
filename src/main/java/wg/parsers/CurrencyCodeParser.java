@@ -1,12 +1,14 @@
 package wg.parsers;
 
+import java.util.Optional;
+
 public class CurrencyCodeParser implements Parser {
 
     @Override
-    public boolean isParseValue(String parameter) {
+    public boolean isParseValue(Optional<String> optionalParameter) {
         boolean condition = true;
 
-        if(parameter.length() != 3){
+        if(optionalParameter.isPresent() && optionalParameter.get().length() != 3){
             condition = false;
         }
 
