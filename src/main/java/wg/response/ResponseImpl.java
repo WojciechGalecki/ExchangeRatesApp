@@ -1,4 +1,6 @@
-package wg;
+package wg.response;
+
+import wg.response.Response;
 
 import java.io.BufferedReader;
 import java.io.IOException;
