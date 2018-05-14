@@ -1,4 +1,4 @@
-package wg;
+package wg.connection;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;

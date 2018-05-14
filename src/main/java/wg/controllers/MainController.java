@@ -5,16 +5,19 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import org.json.JSONArray;
-import wg.UrlConnection;
+import wg.connection.UrlConnection;
 import wg.response.JsonArrayResponse;
 import wg.response.JsonArrayResponseImpl;
 import wg.response.Response;
 import wg.response.ResponseImpl;
+import wg.services.ResponseOperationService;
+import wg.services.ResponseOperationServiceImpl;
 import wg.services.UserQueryService;
 import wg.services.UserQueryServiceImpl;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.util.Optional;
 
@@ -30,7 +33,7 @@ public class MainController {
     private UserQueryService userQueryService;
     private Response response;
     private JsonArrayResponse jsonArrayResponse;
-
+    private ResponseOperationService service;
 
     @FXML
     private TextField codeTxt;
@@ -49,6 +52,7 @@ public class MainController {
         userQueryService = new UserQueryServiceImpl();
         response = new ResponseImpl();
         jsonArrayResponse = new JsonArrayResponseImpl();
+        service = new ResponseOperationServiceImpl();
     }
 
 
@@ -61,11 +65,24 @@ public class MainController {
                 rates = jsonArrayResponse.getJsonArray(optionalResponse.get(), "rates");
             }
         }
-        if(rates != null){
-            System.out.println("OK");
-        }
+        if (rates != null) {
 
+            Double sumBid = service.getSum(rates, "bid");
+            Double avgBid = service.getAvg(rates, sumBid);
+
+            Double sumAsk = service.getSum(rates, "ask");
+            Double avgAsk = service.getAvg(rates, sumAsk);
+            Double standardDevAsk = service.getStandardDev(rates, "ask", avgAsk);
+
+            DecimalFormat df = new DecimalFormat("0.0000");
+            avgBid = Double.valueOf(df.format(avgBid));
+            standardDevAsk = Double.valueOf(df.format(standardDevAsk));
+
+            avgBuyingRate.setText(avgBid.toString());
+            SD_ofSalesRates.setText(standardDevAsk.toString());
+        }
     }
+
 
     private boolean validInputData() {
 
